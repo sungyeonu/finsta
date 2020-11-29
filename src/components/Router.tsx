@@ -6,20 +6,20 @@ import Home from "../routes/Home";
 interface AppRouterProps {
   isLoggedIn: Boolean
 }
-const AppRouter: FC<AppRouterProps> = (isLoggedIn: Boolean) => {
+const AppRouter: FC<AppRouterProps> = (isLoggedIn) => {
   return (
     <Router>
       <Switch>
         {isLoggedIn ? (
           <>
             <Route exact path="/">
-              <Home/>        
+              <Auth/>       
             </Route>
           </>
         ) : (
           <>
             <Route exact path="/">
-              <Auth></Auth>
+              <Auth/>
             </Route>
           </>
         )}

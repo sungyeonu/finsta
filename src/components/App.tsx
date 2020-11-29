@@ -6,7 +6,7 @@ import authService from "../firebase";
 
 function App(): React.ReactNode {
   console.log(authService.currentUser);
-  const [isLoggedIn, setIsLoggedIn] = useState<Boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<Boolean>(true);
 
   return <AppRouter isLoggedIn={isLoggedIn} />;
 }
