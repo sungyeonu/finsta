@@ -15,7 +15,6 @@ const Post = ({ postObj, isOwner }: HomeProps) => {
     if (ok) {
       await dbService.doc(`posts/${postObj.id}`).delete();
     }
-
   };
 
   const toggleEditing = () => setEditing((prev) => !prev);
