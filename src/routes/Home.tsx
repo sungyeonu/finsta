@@ -34,7 +34,9 @@ const Home = ({ userObj }: HomeProps) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    storageService.ref().child(`${userObj.uid}/${uuidv4()}`)
+    const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+    const response = await fileRef.putString(attachment, "data_url");
+    console.log(response);
     // await dbService.collection("posts").add({
     //   text: post,
     //   createdAt: Date.now(),
@@ -80,7 +82,7 @@ const Home = ({ userObj }: HomeProps) => {
         <input type="submit" value="post" />
         {attachment && (
           <div>
-            <img src={attachment} width="50px" height="50px" />
+            <img alt="post" src={attachment} width="50px" height="50px" />
             <button onClick={onClearAttachment}>Clear</button>
           </div>
         )}
