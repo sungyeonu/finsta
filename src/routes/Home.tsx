@@ -12,20 +12,7 @@ const Home = ({ userObj }: HomeProps) => {
   const [posts, setPosts] = useState<[]>([]);
   const [attachment, setAttachment] = useState();
 
-  const getPosts = async () => {
-    const dbNweets = await dbService.collection("posts").get();
-    dbNweets.forEach((document) => {
-      console.log(document.data());
-      const postObject = {
-        ...document.data(),
-        id: document.id,
-      };
-      setPosts((prev) => [postObject, ...prev]);
-    });
-  };
-
   useEffect(() => {
-    getPosts();
     dbService.collection("posts").onSnapshot(snapshot => {
       const postArray = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()}));
       setPosts(postArray);
@@ -34,15 +21,26 @@ const Home = ({ userObj }: HomeProps) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
-    const response = await fileRef.putString(attachment, "data_url");
-    console.log(response);
-    // await dbService.collection("posts").add({
-    //   text: post,
-    //   createdAt: Date.now(),
-    //   creatorId: userObj.uid,
-    // });
-    // setPost("");
+    const attachmentRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+    const response = await attachmentRef.putString(attachment, "data_url");
+    let attachmentUrl = "";
+    if (attachment !== "") {
+      const attachmentRef = storageService
+        .ref()
+        .child(`${userObj.uid}/${uuidv4()}`);
+      const response = await attachmentRef.putString(attachment, "data_url");
+      attachmentUrl = await response.ref.getDownloadURL();
+    }
+    const PostObj = {
+      text: post,
+      createdAt: Date.now(),
+      creatorId: userObj.uid,
+      attachmentUrl,
+    };
+    await dbService.collection("posts").add(PostObj);
+
+    setPost("");
+    setAttachment("");
   };
 
   const onChange = (event) => {
@@ -61,8 +59,8 @@ const Home = ({ userObj }: HomeProps) => {
     reader.onloadend = (finishedEvent) => {
       var fileUrl = (finishedEvent.target as FileReader).result;
       // const {
-      //   currentTarget: { result },
-      // } = finishedEvent;
+        //   currentTarget: { result },
+        // } = finishedEvent;
       setAttachment(fileUrl);
     }
     reader.readAsDataURL(file);

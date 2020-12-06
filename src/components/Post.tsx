@@ -43,7 +43,13 @@ const Post = ({ postObj, isOwner }: HomeProps) => {
       {editing ? (
         <>
           <form onSubmit={onSubmit}>
-            <input type="text" placeholder="Edit your post" onChange={onChange} value={newPost} required/>
+            <input
+              type="text"
+              placeholder="Edit your post"
+              onChange={onChange}
+              value={newPost}
+              required
+            />
             <input type="submit" value="Update Post" />
           </form>
           <button onClick={toggleEditing}>Cancel</button>
@@ -51,6 +57,9 @@ const Post = ({ postObj, isOwner }: HomeProps) => {
       ) : (
         <>
           <h4>{postObj.text}</h4>
+          {postObj.attachmentUrl && (
+            <img src={postObj.attachmentUrl} width="50px" height="50px" />
+          )}
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete Post</button>
