@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { dbService } from "../firebase";
+import { dbService, storageService } from "../firebase";
 
 interface HomeProps {
   isOwner: boolean,
@@ -14,6 +14,7 @@ const Post = ({ postObj, isOwner }: HomeProps) => {
     const ok:boolean = window.confirm("Are you sure you want to delete this post?");
     if (ok) {
       await dbService.doc(`posts/${postObj.id}`).delete();
+      const res = await storageService.refFromURL(postObj.attachmentUrl).delete();
     }
   };
 

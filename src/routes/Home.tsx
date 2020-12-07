@@ -10,7 +10,7 @@ interface HomeProps {
 const Home = ({ userObj }: HomeProps) => {
   const [post, setPost] = useState<String>("");
   const [posts, setPosts] = useState<[]>([]);
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
 
   useEffect(() => {
     dbService.collection("posts").onSnapshot(snapshot => {
@@ -21,8 +21,6 @@ const Home = ({ userObj }: HomeProps) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const attachmentRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
-    const response = await attachmentRef.putString(attachment, "data_url");
     let attachmentUrl = "";
     if (attachment !== "") {
       const attachmentRef = storageService
@@ -58,9 +56,7 @@ const Home = ({ userObj }: HomeProps) => {
     const reader = new FileReader();
     reader.onloadend = (finishedEvent) => {
       var fileUrl = (finishedEvent.target as FileReader).result;
-      // const {
-        //   currentTarget: { result },
-        // } = finishedEvent;
+
       setAttachment(fileUrl);
     }
     reader.readAsDataURL(file);
