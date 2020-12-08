@@ -6,25 +6,27 @@ import Profile from "../routes/Profile";
 import Navigation from "../components/Navigation";
 
 interface AppRouterProps {
-  isLoggedIn: boolean,
-  userObj: any
+  refreshUser: () => void;
+  isLoggedIn: boolean;
+  userObj: any;
 }
 
 const AppRouter = ({
+  refreshUser,
   isLoggedIn,
   userObj,
 }: AppRouterProps) => {
   return (
     <Router>
-      {isLoggedIn && <Navigation userObj={ userObj }/>}
+      {isLoggedIn && <Navigation userObj={userObj} />}
       <Switch>
         {isLoggedIn ? (
           <>
             <Route exact path="/">
-              <Home userObj={ userObj } />
+              <Home userObj={userObj} />
             </Route>
             <Route exact path="/profile">
-              <Profile userObj={ userObj } />
+              <Profile userObj={userObj} refreshUser={refreshUser} />
             </Route>
             <Redirect from="*" to="/" />
           </>
