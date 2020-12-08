@@ -31,7 +31,7 @@ function App(): React.ReactNode {
     });
   };
   return (
-    <>
+    <div className="app">
       {init ? (
         <AppRouter
           refreshUser={refreshUser}
@@ -41,7 +41,7 @@ function App(): React.ReactNode {
       ) : (
         "Loading..."
       )}
-    </>
+    </div>
   );
 }
 

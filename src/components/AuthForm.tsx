@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { authService } from "../firebase";
+import "../styles.css"
 
 const AuthForm = () => {
   const [email, setEmail] = useState<string>("");
@@ -43,6 +44,7 @@ const AuthForm = () => {
     <>
       <form onSubmit={onSubmit}>
         <input
+          className="authInput"
           name="email"
           type="text"
           placeholder="Email"
@@ -51,6 +53,7 @@ const AuthForm = () => {
           onChange={onChange}
         />
         <input
+          className="authInput"
           name="password"
           type="password"
           placeholder="Password"
@@ -61,9 +64,6 @@ const AuthForm = () => {
         <input type="submit" value={newAccount ? "Create Account" : "Login"} />
         {error}
       </form>
-      <span onClick={toggleAccount}>
-        {newAccount ? "Login" : "Create Account"}
-      </span>
     </>
   );
 };

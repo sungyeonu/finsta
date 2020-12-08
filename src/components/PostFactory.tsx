@@ -46,7 +46,7 @@ const PostFactory = ({ userObj }) => {
   };
   const onClearAttachment = () => setAttachment(null);
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={ onSubmit } className="container">
       <input
         value={post}
         onChange={onChange}
@@ -58,7 +58,7 @@ const PostFactory = ({ userObj }) => {
       <input type="submit" value="post" />
       {attachment && (
         <div>
-          <img src={attachment} width="50px" height="50px" />
+          <img alt="post" src={attachment} width="50px" height="50px" />
           <button onClick={onClearAttachment}>Clear</button>
         </div>
       )}

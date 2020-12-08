@@ -1,0 +1,40 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css";
+
+body {
+  background-color: #fafafa;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+
+/* .container {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+} */
+
+.logoLarge {
+  height: 200px;
+  width: 200px;
+}
+
+.authInput {
+  max-width: 320px;
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: black;
+}
+
+.authContainer {
+  border: solid;
+  border-color: black;
+  display: flex;
+  flex-direction: column;
+  height: 480px;
+  width: 480px;
+  justify-content: center;
+  align-items: center;
+}

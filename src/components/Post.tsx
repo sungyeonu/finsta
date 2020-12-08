@@ -14,7 +14,7 @@ const Post = ({ postObj, isOwner }: HomeProps) => {
     const ok:boolean = window.confirm("Are you sure you want to delete this post?");
     if (ok) {
       await dbService.doc(`posts/${postObj.id}`).delete();
-      const res = await storageService.refFromURL(postObj.attachmentUrl).delete();
+      await storageService.refFromURL(postObj.attachmentUrl).delete();
     }
   };
 
@@ -59,7 +59,7 @@ const Post = ({ postObj, isOwner }: HomeProps) => {
         <>
           <h4>{postObj.text}</h4>
           {postObj.attachmentUrl && (
-            <img src={postObj.attachmentUrl} width="50px" height="50px" />
+            <img alt="post" src={postObj.attachmentUrl} width="50px" height="50px" />
           )}
           {isOwner && (
             <>
