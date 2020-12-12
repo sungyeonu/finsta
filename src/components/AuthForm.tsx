@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { authService } from "../firebase";
-import "../styles.css"
+import "../styles.css";
+import "../routes/auth.css";
 
 const AuthForm = () => {
   const [email, setEmail] = useState<string>("");
@@ -41,7 +42,7 @@ const AuthForm = () => {
   const toggleAccount = () => setNewAccount((prev) => !prev);
 
   return (
-    <>
+    <div>
       <form onSubmit={onSubmit}>
         <input
           className="authInput"
@@ -61,10 +62,25 @@ const AuthForm = () => {
           value={password}
           onChange={onChange}
         />
-        <input type="submit" value={newAccount ? "Create Account" : "Login"} />
-        {error}
+        <input
+          className="signInWithGoogleButton"
+          type="submit"
+          value={newAccount ? "Sign up" : "Log in "}
+        />
       </form>
-    </>
+      {error && 
+        <>
+          <span className="errorText">{error}</span>
+          <br />
+          <br />
+        </>
+      }
+      <span onClick={toggleAccount}>
+        {newAccount
+          ? "Have an account? Log in"
+          : "Don't have an account? Sign up"}
+      </span>
+    </div>
   );
 };
 export default AuthForm;

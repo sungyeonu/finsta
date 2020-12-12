@@ -11,6 +11,7 @@ function App(): React.ReactNode {
     authService.onAuthStateChanged((user) => {
       if (user) {
         setUserObj({
+          email: user.email,
           displayName: user.displayName,
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
@@ -25,11 +26,13 @@ function App(): React.ReactNode {
   const refreshUser = () => {
     const user = authService.currentUser;
     setUserObj({
+      email: user.email,
       displayName: user.displayName,
       uid: user.uid,
       updateProfile: (args) => user.updateProfile(args),
     });
   };
+  
   return (
     <div className="app">
       {init ? (

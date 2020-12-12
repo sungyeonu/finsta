@@ -2,6 +2,7 @@ import React from 'react';
 import AuthForm from '../components/AuthForm';
 import { authService, firebaseInstance } from '../firebase';
 import "../styles.css";
+import "./auth.css";
 import Logo from "../Instagram-Logo.png"
 
 const Auth = () => {
@@ -16,13 +17,23 @@ const Auth = () => {
 
   return (
     <div className="authContainer">
-      <img src={Logo} alt="logo large" className="LogoLarge" width="400"></img>
+      <img src={Logo} alt="logo large" className="LogoLarge" width="200"></img>
+      <span className="greyLargeText">
+        Sign up to see photos from your friends.
+      </span>
+      <button
+        name="google"
+        className="signInWithGoogleButton"
+        onClick={onGoogleClick}
+      >
+        Log in with Google
+      </button>
+      <span className="greyLargeText">OR</span>
       <AuthForm />
-      <div>
-        <button name="google" onClick={onGoogleClick}>
-          Continue with Google
-        </button>
-      </div>
+      <span className="greySmallText">
+        By signing up, you agree to our Terms, Data Policy and
+        Cookies Policy
+      </span>
     </div>
   );
 };

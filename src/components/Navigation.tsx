@@ -13,7 +13,11 @@ const Navigation = ({ userObj }: NavigationProps) => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/profile">{userObj.displayName}'s Profile</Link>
+          {userObj.displayName ? (
+            <Link to="/profile">{userObj.displayName}'s Profile</Link>
+          ) : (
+            <Link to="/profile">Profile</Link>
+          )}
         </li>
       </ul>
     </nav>
