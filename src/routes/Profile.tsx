@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { authService } from "../firebase";
 import { useHistory } from "react-router-dom";
-
+import "./profile.css";
 const Profile = ({ userObj, refreshUser }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
@@ -38,18 +38,28 @@ const Profile = ({ userObj, refreshUser }) => {
   };
 
   return (
-    <>
+    <div className="container">
       <form onSubmit={onSubmit}>
-        <input
-          onChange={onChange}
-          type="text"
-          placeholder="Display name"
-          value={newDisplayName}
-        />
-        <input type="submit" value="Update Profile" />
+        <span className="logOutSpan">
+          Change profile name
+        </span>
+        <br></br>
+        <div className="inputContainer">
+
+          <input
+            onChange={onChange}
+            className="input"
+            type="text"
+            placeholder="Display name"
+            value={newDisplayName}
+            />
+          <input className="button" type="submit" value="Submit" />
+        </div>
       </form>
-      <button onClick={onLogOutClick}>Log Out</button>
-    </>
+      <span className="logOutSpan" onClick={onLogOutClick}>
+        Log Out
+      </span>
+    </div>
   );
 };
 export default Profile;

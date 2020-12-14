@@ -1,12 +1,14 @@
 .navigationBar {
   height: 48px;
   width: 600px;
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
-  /* justify-content: center; */
-  margin: auto;
+  align-items: center;
+  justify-content: center;
+  /* margin: auto; */
   background-color: white;
   border: 1px solid rgb(220, 220, 220);
+  position: relative;
 }
 
 .li {
@@ -15,4 +17,16 @@
 .icons {
   width: 32px;
   height: 32px;
+  padding-left: 8px;
+  padding-top: 4px;
+}
+
+.contentsLeft {
+  padding-left: 16px;
+  float: left;
+}
+
+.contentsRight {
+  padding-right: 16px;
+  float: right;
 }

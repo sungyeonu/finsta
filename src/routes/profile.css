@@ -1,0 +1,44 @@
+.container {
+  background-color: white;
+  border: 1px solid rgb(220, 220, 220);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 600px;
+  margin-top: 36px;
+  padding-top: 32px;
+  /* padding: 24px; */
+}
+
+.logOutSpan {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
+
+}
+
+.input {
+  width: 160px;
+  height: 24px;
+  margin-left: 32px;
+  border: 1px solid #8e8e8e;
+  background-color: rgb(250, 250, 250);
+  margin: 4px;
+  border-radius: 6px;
+  font-size: 18px;
+  color: black;
+}
+
+.button {
+  background-color: red;
+  color: white;
+  width: 144px;
+  font-weight: 500;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+.inputContainer {
+  padding-left: 32px;
+}
