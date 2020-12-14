@@ -3,14 +3,14 @@
   border: 1px solid rgb(220, 220, 220);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 600px;
+  /* align-items: center; */
+  max-width: 600px;
   margin-top: 36px;
   padding-top: 32px;
-  /* padding: 24px; */
 }
 
-.button {
+.postButton {
+  margin-right: 4%;
   background-color: red;
   color: white;
   width: 144px;
@@ -19,12 +19,14 @@
   border: none;
   border-radius: 6px;
   /* margin-top: 12px; */
+  margin-left: 4px;
   margin-bottom: 12px;
-  float: right;
+  /* float: right; */
 }
 
 .inputText {
-  width: 80%;
+  margin-left: 80px;
+  width: 400px;
   margin-bottom: 24px;
     /* width: 260px; */
   padding: 12px;
@@ -41,5 +43,8 @@
 }
 
 .fileinput {
-  padding-top: 16px;
+  /* width: 80%; */
+  margin-left: 80px;
+  width: 276px;
+  padding-top: 4px;
 }

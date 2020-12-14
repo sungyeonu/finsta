@@ -38,7 +38,7 @@ const Profile = ({ userObj, refreshUser }) => {
   };
 
   return (
-    <div className="container">
+    <div className="profileContainer">
       <span className="title">Profile </span>
       <br></br>
       <br></br>
@@ -48,12 +48,12 @@ const Profile = ({ userObj, refreshUser }) => {
         <div className="inputContainer">
           <input
             onChange={onChange}
-            className="input"
+            className="nameInput"
             type="text"
             placeholder="Display name"
             value={newDisplayName}
           />
-          <input className="button" type="submit" value="Submit" />
+          <input className="profileButton" type="submit" value="Submit" />
         </div>
       </form>
       <span className="logOutSpan" onClick={onLogOutClick}>

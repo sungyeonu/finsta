@@ -1,4 +1,4 @@
-.container {
+.profileContainer {
   background-color: white;
   border: 1px solid rgb(220, 220, 220);
   display: flex;
@@ -17,7 +17,7 @@
 
 }
 
-.input {
+.nameInput {
   width: 160px;
   height: 24px;
   margin-left: 32px;
@@ -29,7 +29,7 @@
   color: black;
 }
 
-.button {
+.profileButton {
   background-color: red;
   color: white;
   width: 144px;
@@ -38,6 +38,7 @@
   border: none;
   border-radius: 6px;
   margin-top: 12px;
+  margin-left: 12px;
 }
 
 .inputContainer {

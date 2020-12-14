@@ -67,8 +67,13 @@ const PostFactory = ({ userObj }) => {
         maxLength={120}
       />
       <div className="buttonContainer">
-        <input className="fileinput" type="file" accept="image/*" onChange={onFileChange} />
-        <input className="button" type="submit" value="post" /> 
+        <input
+          className="fileinput"
+          type="file"
+          accept="image/*"
+          onChange={onFileChange}
+        />
+        <input className="postButton" type="submit" value="post" />
       </div>
 
       {/* {attachment && (
