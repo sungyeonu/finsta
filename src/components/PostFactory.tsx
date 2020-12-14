@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { storageService, dbService } from "../firebase";
+import "./postFactory.css";
 
 const PostFactory = ({ userObj }) => {
   const [post, setPost] = useState("");
@@ -56,16 +57,20 @@ const PostFactory = ({ userObj }) => {
   const onClearAttachment = () => setAttachment(null);
 
   return (
-    <form onSubmit={ onSubmit } className="container">
+    <form onSubmit={onSubmit} className="container">
       <input
+        className="inputText"
         value={post}
         onChange={onChange}
         type="text"
         placeholder="What's on your mind?"
         maxLength={120}
       />
-      <input type="file" accept="image/*" onChange={onFileChange} />
-      <input type="submit" value="post" />
+      <div className="buttonContainer">
+        <input className="fileinput" type="file" accept="image/*" onChange={onFileChange} />
+        <input className="button" type="submit" value="post" /> 
+      </div>
+
       {/* {attachment && (
         <div>
           <img alt="post" src={attachment} width="50px" height="50px" />

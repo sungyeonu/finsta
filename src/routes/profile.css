@@ -39,6 +39,12 @@
   border-radius: 6px;
   margin-top: 12px;
 }
+
 .inputContainer {
   padding-left: 32px;
+}
+
+.title {
+  padding-left: 32px;
+  font-size: 32px;
 }
