@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { dbService, storageService } from "../firebase";
 import "./post.css";
 import editLogo from '../graphics/editButton.png';
 
 interface HomeProps {
-  userEmail: string;
+  postOwnerDisplayName: string;
   isOwner: boolean;
   postObj: any;
 }
 
-const Post = ({ userEmail, postObj, isOwner }: HomeProps) => {
+const Post = ({ postOwnerDisplayName, postObj, isOwner }: HomeProps) => {
   const onDeleteClick = async () => {
     const ok: boolean = window.confirm(
       "Are you sure you want to delete this post?"
@@ -23,7 +23,7 @@ const Post = ({ userEmail, postObj, isOwner }: HomeProps) => {
   return (
     <div className="postContainer">
       <div className="topInfo">
-        <span>{postObj.creatorId}</span>
+        <span>{postObj.creatorDisplayName}</span>
         {isOwner ? (
           <div className="deletePostButton">
             <img

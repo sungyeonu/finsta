@@ -19,14 +19,14 @@ const Home = ({ userObj }: HomeProps) => {
 
   return (
     <div>
-      <PostFactory userObj={ userObj }/>
+      <PostFactory userObj={userObj} />
       <div>
         {posts.map((post) => (
           <Post
-            key={ post.id }
-            userEmail={ userObj.email }
-            postObj={ post }
-            isOwner={ post.creatorId === userObj.uid }
+            key={post.id}
+            postOwnerDisplayName={userObj.displayName}
+            postObj={post}
+            isOwner={post.creatorId === userObj.uid}
           />
         ))}
       </div>

@@ -1,0 +1,18 @@
+.navigationBar {
+  height: 48px;
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  margin: auto;
+  background-color: white;
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.li {
+  display: inline;
+}
+.icons {
+  width: 32px;
+  height: 32px;
+}

@@ -21,17 +21,25 @@ const PostFactory = ({ userObj }) => {
       createdAt: Date.now(),
       creatorId: userObj.uid,
       attachmentUrl,
+      creatorDisplayName: userObj.displayName
     };
-    await dbService.collection("posts").add(postObj);
-    setPost("");
-    setAttachment("");
+    if (attachmentUrl && post) {
+      await dbService.collection("posts").add(postObj);
+      setPost("");
+      setAttachment("");
+    } else {
+      console.log("error", postObj);
+    }
+
   };
+
   const onChange = (event) => {
     const {
       target: { value },
     } = event;
     setPost(value); 
   };
+
   const onFileChange = (event) => {
     const {
       target: { files },
@@ -44,7 +52,9 @@ const PostFactory = ({ userObj }) => {
     };
     reader.readAsDataURL(theFile);
   };
+
   const onClearAttachment = () => setAttachment(null);
+
   return (
     <form onSubmit={ onSubmit } className="container">
       <input
@@ -56,12 +66,12 @@ const PostFactory = ({ userObj }) => {
       />
       <input type="file" accept="image/*" onChange={onFileChange} />
       <input type="submit" value="post" />
-      {attachment && (
+      {/* {attachment && (
         <div>
           <img alt="post" src={attachment} width="50px" height="50px" />
           <button onClick={onClearAttachment}>Clear</button>
         </div>
-      )}
+      )} */}
     </form>
   );
 };

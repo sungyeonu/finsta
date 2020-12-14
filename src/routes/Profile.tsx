@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { authService } from "../firebase";
 import { useHistory } from "react-router-dom";
 
 const Profile = ({ userObj, refreshUser }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
+
+  useEffect(() => {
+    if (!userObj.displayName) { // if displayName does not exist set the default name to the user's email without the domain
+      userObj.updateProfile({
+        displayName: userObj.email
+      });
+      refreshUser();
+    }
+  });
 
   const onLogOutClick = () => {
     authService.signOut();
@@ -17,6 +26,7 @@ const Profile = ({ userObj, refreshUser }) => {
     } = event;
     setNewDisplayName(value);
   };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     if (userObj.displayName !== newDisplayName) {
@@ -26,6 +36,7 @@ const Profile = ({ userObj, refreshUser }) => {
       refreshUser();
     }
   };
+
   return (
     <>
       <form onSubmit={onSubmit}>
