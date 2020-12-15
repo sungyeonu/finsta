@@ -1,9 +1,8 @@
-.container {
+/* .container {
   background-color: white;
   border: 1px solid rgb(220, 220, 220);
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   max-width: 600px;
   margin-top: 36px;
   padding-top: 32px;
@@ -18,19 +17,15 @@
   height: 36px;
   border: none;
   border-radius: 6px;
-  /* margin-top: 12px; */
   margin-left: 4px;
   margin-bottom: 12px;
-  /* float: right; */
 }
 
 .inputText {
   margin-left: 80px;
   width: 400px;
   margin-bottom: 24px;
-    /* width: 260px; */
   padding: 12px;
-  /* border-color: #8e8e8e; */
   border: 1px solid #8e8e8e;
   background-color: rgb(250, 250, 250);
   border-radius: 6px;
@@ -43,8 +38,7 @@
 }
 
 .fileinput {
-  /* width: 80%; */
   margin-left: 80px;
   width: 276px;
   padding-top: 4px;
-}
+} */

@@ -1,13 +1,11 @@
-.profileContainer {
+/* .profileContainer {
   background-color: white;
   border: 1px solid rgb(220, 220, 220);
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   width: 600px;
   margin-top: 36px;
   padding-top: 32px;
-  /* padding: 24px; */
 }
 
 .logOutSpan {
@@ -48,4 +46,4 @@
 .title {
   padding-left: 32px;
   font-size: 32px;
-}
+} */

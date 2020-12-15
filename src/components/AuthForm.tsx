@@ -67,14 +67,15 @@ const AuthForm = () => {
           type="submit"
           value={newAccount ? "Sign up" : "Log in "}
         />
+
       </form>
-      {error && 
+      {error && (
         <>
           <span className="errorText">{error}</span>
           <br />
           <br />
         </>
-      }
+      )}
       <span onClick={toggleAccount}>
         {newAccount
           ? "Have an account? Log in"
