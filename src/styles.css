@@ -8,3 +8,9 @@ html * {
 body {
   background-color: rgb(235, 235, 235);
 }
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
