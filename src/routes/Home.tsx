@@ -22,8 +22,6 @@ const Home = ({ userObj }: HomeProps) => {
       <div>
         {posts.map((post) => (
           <Post
-            key={post.id}
-            postOwnerDisplayName={userObj.displayName}
             postObj={post}
             isOwner={post.creatorId === userObj.uid}
           />

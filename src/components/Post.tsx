@@ -4,12 +4,11 @@ import "./post.css";
 import editLogo from '../graphics/editButton.png';
 
 interface HomeProps {
-  postOwnerDisplayName: string;
   isOwner: boolean;
   postObj: any;
 }
 
-const Post = ({ postOwnerDisplayName, postObj, isOwner }: HomeProps) => {
+const Post = ({ postObj, isOwner }: HomeProps) => {
   const onDeleteClick = async () => {
     const ok: boolean = window.confirm(
       "Are you sure you want to delete this post?"
@@ -23,7 +22,7 @@ const Post = ({ postOwnerDisplayName, postObj, isOwner }: HomeProps) => {
   return (
     <div className="postContainer">
       <div className="topInfo">
-        <span>{postObj.creatorDisplayName}</span>
+        <span className="creatorName">{postObj.creatorDisplayName}</span>
         {isOwner ? (
           <div className="deletePostButton">
             <img
@@ -37,12 +36,13 @@ const Post = ({ postOwnerDisplayName, postObj, isOwner }: HomeProps) => {
           <div />
         )}
       </div>
+      <span className="location">{postObj.location}</span>
       {postObj.attachmentUrl && (
         <img
           alt="post"
           src={postObj.attachmentUrl}
-          width="375px"
-          height="375px"
+          width="360px"
+          height="360px"
         />
       )}
       <div className="postIcons">
@@ -81,8 +81,8 @@ const Post = ({ postOwnerDisplayName, postObj, isOwner }: HomeProps) => {
           <path d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
         </svg> */}
       </div>
-      <span className="caption">{postObj.text}</span>
-      <span className="caption">{}</span>
+      <span className="caption">{postObj.caption}</span>
+      <span className="location">{}</span>
     </div>
   );
 };

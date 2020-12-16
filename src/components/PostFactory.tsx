@@ -74,7 +74,7 @@ const PostFactory = ({ userObj }) => {
         onChange={captionOnChange}
         type="text"
         placeholder="e.g. my favorite cookie is..."
-        maxLength={40}
+        maxLength={160}
       />
       <span className="postFactoryText">Location</span>
       <input

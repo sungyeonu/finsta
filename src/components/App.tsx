@@ -27,7 +27,6 @@ function App(): React.ReactNode {
       } else {
         setUserObj(null);
       }
-      console.log(userObj)
       setInit(true);
     });
   }, []);
