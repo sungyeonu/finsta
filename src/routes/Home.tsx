@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { dbService } from '../firebase';
 import Post from '../components/Post';
 import PostFactory from '../components/PostFactory';
-
 interface HomeProps {
   userObj: any;
 }
@@ -18,7 +17,7 @@ const Home = ({ userObj }: HomeProps) => {
   }, []);
 
   return (
-    <div>
+    <div className="homeContainer">
       <PostFactory userObj={userObj} />
       <div>
         {posts.map((post) => (

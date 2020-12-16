@@ -3,7 +3,7 @@
   width: 100%;
   background-color: white;
   border: 1px solid rgb(220, 220, 220);
-  position: fixed;
+  /* position: fixed; */
 }
 
 .li {

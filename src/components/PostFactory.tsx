@@ -4,7 +4,8 @@ import { storageService, dbService } from "../firebase";
 import "./postFactory.css";
 
 const PostFactory = ({ userObj }) => {
-  const [post, setPost] = useState("");
+  const [caption, setCaption] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
   const [attachment, setAttachment] = useState("");
   
   const onSubmit = async (event) => {
@@ -17,28 +18,37 @@ const PostFactory = ({ userObj }) => {
       const response = await attachmentRef.putString(attachment, "data_url");
       attachmentUrl = await response.ref.getDownloadURL();
     }
-    const postObj = {
-      text: post,
+    const postObject = {
+      caption: caption,
+      location: location,
       createdAt: Date.now(),
       creatorId: userObj.uid,
       attachmentUrl,
       creatorDisplayName: userObj.displayName
     };
-    if (attachmentUrl && post) {
-      await dbService.collection("posts").add(postObj);
-      setPost("");
+    if (attachmentUrl && caption) {
+      await dbService.collection("posts").add(postObject);
+      setCaption("");
+      setLocation("");
       setAttachment("");
     } else {
-      console.log("error", postObj);
+      console.log("error", postObject);
     }
 
   };
 
-  const onChange = (event) => {
+  const captionOnChange = (event) => {
     const {
       target: { value },
     } = event;
-    setPost(value); 
+    setCaption(value); 
+  };
+
+  const locationOnChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setLocation(value);
   };
 
   const onFileChange = (event) => {
@@ -54,17 +64,26 @@ const PostFactory = ({ userObj }) => {
     reader.readAsDataURL(theFile);
   };
 
-  const onClearAttachment = () => setAttachment(null);
-
   return (
-    <form onSubmit={onSubmit} className="container">
+    <form onSubmit={onSubmit} className="postFactoryContainer">
+      <span className="postFactoryTitle">Create post</span>
+      <span className="postFactoryText">Caption*</span>
       <input
-        className="inputText"
-        value={post}
-        onChange={onChange}
+        className="postFactoryInput"
+        value={caption}
+        onChange={captionOnChange}
         type="text"
-        placeholder="What's on your mind?"
-        maxLength={120}
+        placeholder="e.g. my favorite cookie is..."
+        maxLength={40}
+      />
+      <span className="postFactoryText">Location</span>
+      <input
+        className="postFactoryInput"
+        value={location}
+        onChange={locationOnChange}
+        type="text"
+        placeholder="e.g. Berlin"
+        maxLength={20}
       />
       <div className="buttonContainer">
         <input
@@ -75,13 +94,6 @@ const PostFactory = ({ userObj }) => {
         />
         <input className="postButton" type="submit" value="post" />
       </div>
-
-      {/* {attachment && (
-        <div>
-          <img alt="post" src={attachment} width="50px" height="50px" />
-          <button onClick={onClearAttachment}>Clear</button>
-        </div>
-      )} */}
     </form>
   );
 };

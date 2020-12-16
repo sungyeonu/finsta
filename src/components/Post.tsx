@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import { dbService, storageService } from "../firebase";
 import "./post.css";
 import editLogo from '../graphics/editButton.png';
@@ -41,8 +41,8 @@ const Post = ({ postOwnerDisplayName, postObj, isOwner }: HomeProps) => {
         <img
           alt="post"
           src={postObj.attachmentUrl}
-          width="600px"
-          height="600px"
+          width="375px"
+          height="375px"
         />
       )}
       <div className="postIcons">

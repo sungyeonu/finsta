@@ -1,34 +1,43 @@
-/* .container {
+.postFactoryContainer {
   background-color: white;
   border: 1px solid rgb(220, 220, 220);
   display: flex;
   flex-direction: column;
-  max-width: 600px;
-  margin-top: 36px;
-  padding-top: 32px;
+  margin: 0 auto;
+  width: 360px;
+  margin-top: 24px;
+
 }
 
 .postButton {
   margin-right: 4%;
   background-color: red;
   color: white;
-  width: 144px;
+  width: 80px;
   font-weight: 500;
   height: 36px;
   border: none;
+  float: right;
   border-radius: 6px;
-  margin-left: 4px;
+  margin-right: 32px;
   margin-bottom: 12px;
 }
 
-.inputText {
-  margin-left: 80px;
-  width: 400px;
-  margin-bottom: 24px;
-  padding: 12px;
-  border: 1px solid #8e8e8e;
+.postFactoryText {
+  width: 30%;
+  padding-left: 24px;
+  padding-top: 24px;
+}
+
+.postFactoryInput {
+  margin-left: 24px;
+  width: 80%;
+  margin-top: 12px;
+  padding-left: 12px;
+  border: 1px solid grey;
+  height: 32px;
   background-color: rgb(250, 250, 250);
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 12px;
   color: black;
 }
@@ -37,8 +46,16 @@
   padding-bottom: 12px;
 }
 
+.postFactoryTitle {
+  margin-left: 24px;
+  margin-top: 24px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .fileinput {
-  margin-left: 80px;
+  margin-left: 24px;
   width: 276px;
-  padding-top: 4px;
-} */
+  padding-top: 24px;
+  padding-bottom: 12px;
+}

@@ -1,5 +1,5 @@
 .signInWithGoogleButton {
-  background-color: rgb(255, 105, 97);
+  background-color: red;
   color: white;
   width: 80%;
   font-weight: 500;
@@ -53,18 +53,6 @@
   margin-top: 36px;
 }
 
-
-.authContainer {
-  background-color: white;
-  border: 1px solid rgb(220, 220, 220);
-  text-align: center;
-  flex-direction: column; 
-  width: 375px;
-  padding-top: 40px;
-  margin: 0 auto;
-  margin-top: 36px;
-}
-
 @media (max-width: 400px) {
   /* hide border on mobile view */
   .authContainer {
@@ -72,6 +60,7 @@
     border: 0px;
   }
 }
+
 .errorText {
   display: inline-block;
   width: 80%;
