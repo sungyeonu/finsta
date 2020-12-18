@@ -24,7 +24,8 @@ const PostFactory = ({ userObj }) => {
       createdAt: Date.now(),
       creatorId: userObj.uid,
       attachmentUrl,
-      creatorDisplayName: userObj.displayName
+      creatorDisplayName: userObj.displayName,
+      likedUsers: []
     };
     if (attachmentUrl && caption) {
       await dbService.collection("posts").add(postObject);
