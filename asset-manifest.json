@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/finsta/static/css/main.ced2c6be.chunk.css",
-    "main.js": "/finsta/static/js/main.f5e0cebc.chunk.js",
-    "main.js.map": "/finsta/static/js/main.f5e0cebc.chunk.js.map",
+    "main.css": "/finsta/static/css/main.e1a37eeb.chunk.css",
+    "main.js": "/finsta/static/js/main.3dc4213f.chunk.js",
+    "main.js.map": "/finsta/static/js/main.3dc4213f.chunk.js.map",
     "runtime-main.js": "/finsta/static/js/runtime-main.e8e35bc7.js",
     "runtime-main.js.map": "/finsta/static/js/runtime-main.e8e35bc7.js.map",
     "static/js/2.ddceeb3f.chunk.js": "/finsta/static/js/2.ddceeb3f.chunk.js",
     "static/js/2.ddceeb3f.chunk.js.map": "/finsta/static/js/2.ddceeb3f.chunk.js.map",
     "index.html": "/finsta/index.html",
-    "static/css/main.ced2c6be.chunk.css.map": "/finsta/static/css/main.ced2c6be.chunk.css.map",
+    "static/css/main.e1a37eeb.chunk.css.map": "/finsta/static/css/main.e1a37eeb.chunk.css.map",
     "static/js/2.ddceeb3f.chunk.js.LICENSE.txt": "/finsta/static/js/2.ddceeb3f.chunk.js.LICENSE.txt",
     "static/media/Instagram-Logo.d9be23dd.png": "/finsta/static/media/Instagram-Logo.d9be23dd.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e8e35bc7.js",
     "static/js/2.ddceeb3f.chunk.js",
-    "static/css/main.ced2c6be.chunk.css",
-    "static/js/main.f5e0cebc.chunk.js"
+    "static/css/main.e1a37eeb.chunk.css",
+    "static/js/main.3dc4213f.chunk.js"
   ]
 }
