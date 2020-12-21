@@ -12,10 +12,21 @@ const Home = ({ userObj }: HomeProps) => {
   useEffect(() => {
     dbService.collection("posts").onSnapshot(snapshot => {
       const postArray = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()}));
+      postArray.sort(postSort);
       setPosts(postArray);
     });
   }, []);
 
+  const postSort = (a, b) => {
+    console.log(a.createdAt)
+    if (a.createdAt < b.createdAt) {
+      return 1;
+    } 
+    else if (a.createdAt > b.createdAt) {
+      return -1
+    }
+    return 0
+  }
   return (
     <div className="homeContainer">
       <PostFactory userObj={userObj} />
