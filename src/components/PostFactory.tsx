@@ -59,7 +59,7 @@ const PostFactory = ({ userObj }) => {
     const theFile = files[0];
     const reader = new FileReader();
     reader.onloadend = (finishedEvent) => {
-      var fileUrl = (finishedEvent.target as FileReader).result;
+      const fileUrl = (finishedEvent.target as FileReader).result.toString();
       setAttachment(fileUrl);
     };
     reader.readAsDataURL(theFile);

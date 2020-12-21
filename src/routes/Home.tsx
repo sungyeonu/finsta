@@ -7,7 +7,7 @@ interface HomeProps {
 }
 
 const Home = ({ userObj }: HomeProps) => {
-  const [posts, setPosts] = useState<[]>([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     dbService.collection("posts").onSnapshot(snapshot => {

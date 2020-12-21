@@ -3,7 +3,7 @@ import AppRouter from './Router';
 import { useState, useEffect } from 'react';
 import { authService } from "../firebase";
 
-function App(): React.ReactNode {
+const App = () => {
   const [init, setInit] = useState<boolean>(false);
   const [userObj, setUserObj] = useState(null);
 
