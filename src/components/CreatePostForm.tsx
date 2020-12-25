@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { storageService, dbService } from "../firebase";
-import "./postFactory.css";
+import "./CreatePostForm.css";
 
-const PostFactory = ({ userObj }) => {
+const CreatePostForm = ({ userObj }) => {
   const [caption, setCaption] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [attachment, setAttachment] = useState("");
-  
+
   const onSubmit = async (event) => {
     event.preventDefault();
     let attachmentUrl = "";
@@ -25,7 +25,7 @@ const PostFactory = ({ userObj }) => {
       creatorId: userObj.uid,
       attachmentUrl,
       creatorDisplayName: userObj.displayName,
-      likedUsers: []
+      likedUsers: [],
     };
     if (attachmentUrl && caption) {
       await dbService.collection("posts").add(postObject);
@@ -35,14 +35,13 @@ const PostFactory = ({ userObj }) => {
     } else {
       console.log("error", postObject);
     }
-
   };
 
   const captionOnChange = (event) => {
     const {
       target: { value },
     } = event;
-    setCaption(value); 
+    setCaption(value);
   };
 
   const locationOnChange = (event) => {
@@ -98,4 +97,4 @@ const PostFactory = ({ userObj }) => {
     </form>
   );
 };
-export default PostFactory;
+export default CreatePostForm;
