@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { storageService, dbService } from "../firebase";
-import "./CreatePostForm.css";
+import "./PostForm.css";
 
-const CreatePostForm = ({ userObj }) => {
+interface PostFormProps {
+  userObj: any;
+}
+const PostForm = ({ userObj }: PostFormProps) => {
   const [caption, setCaption] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [attachment, setAttachment] = useState("");
@@ -16,7 +19,6 @@ const CreatePostForm = ({ userObj }) => {
         .ref()
         .child(`${userObj.uid}/${uuidv4()}`);
       const response = await attachmentRef.putString(attachment, "data_url");
-      attachmentUrl = await response.ref.getDownloadURL();
     }
     const postObject = {
       caption: caption,
@@ -97,4 +99,4 @@ const CreatePostForm = ({ userObj }) => {
     </form>
   );
 };
-export default CreatePostForm;
+export default PostForm;

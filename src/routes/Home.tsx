@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { dbService } from '../firebase';
+import { dbService } from "../firebase";
 import Post from '../components/Post';
-import CreatePostForm from "../components/CreatePostForm";
+import PostForm from "../components/PostForm";
+
 interface HomeProps {
   userObj: any;
 }
@@ -18,6 +19,7 @@ const Home = ({ userObj }: HomeProps) => {
   }, []);
 
   const postSort = (a, b) => {
+    // sort by the post's createdAt
     if (a.createdAt < b.createdAt) {
       return 1;
     } 
@@ -29,10 +31,11 @@ const Home = ({ userObj }: HomeProps) => {
 
   return (
     <div className="homeContainer">
-      <CreatePostForm userObj={userObj} />
+      <PostForm userObj={userObj} />
       <div>
         {posts.map((post) => (
           <Post
+            key={post.id}
             postObj={post}
             userUid={userObj.uid}
             isOwner={post.creatorId === userObj.uid}

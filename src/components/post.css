@@ -13,19 +13,13 @@
   padding-left: 16px;
   padding-top: 16px;
 }
-.postIcons {
-  /* padding: 0px; */
-}
+
 .icon {
   padding-right: 4px;
 }
 
 .numLikes {
   padding-top: 4px;
-}
-.topInfo {
-  padding: 12px;
-  padding-bottom: 0px;
 }
 
 .deletePostButton {
@@ -41,14 +35,44 @@
 
 .numLikes {
   font-weight: 300;
-  font-size: 16px;}
+  font-size: 16px;
+}
+
 .creatorName {
   font-weight: 600;
 }
+
 .location {
   font-weight: 300;
   font-size: 14px;
-  padding-left: 12px;
   padding-top: 4px;
+}
+
+.topInfo {
+  padding: 12px;
   padding-bottom: 6px;
+  /* margin: auto; */
+}
+
+.profileImageSmallCropper {
+  width: 32px;
+  height: 32px;
+  /* position: relative; */
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 8px;
+  float: left;
+
+}
+
+.profilePictureSmall {
+  /* display: inline; */
+  height: 100%;
+  width: auto;
+}
+
+.topInfoRight {
+  /* width: 70%; */
+  /* margin-left: 10%; */
+  /* float: right; */
 }

@@ -1,4 +1,4 @@
-import React  from "react";
+import { useState, useEffect }  from "react";
 import { dbService, storageService } from "../firebase";
 import "./post.css";
 import editLogo from '../graphics/editButton.png';
@@ -10,6 +10,12 @@ interface PostProps {
 }
 
 const Post = ({ postObj, userUid, isOwner }: PostProps) => {
+  const [profilePicture, setProfilePicture] = useState("");
+  // const [profilePictureExists, setProfilePictureExists]
+  useEffect(() => {
+    getProfilePictureRef();
+  }, [])
+
   const onDeleteClick = async () => {
     const ok: boolean = window.confirm(
       "Are you sure you want to delete this post?"
@@ -68,31 +74,52 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
       );
     }
   }
+
   const likesSpan = (numLikes) => {
-    if (numLikes == 1) {
+    if (numLikes === 1) {
       return <span className="numLikes"> {numLikes} like </span>;
     } else {
       return <span className="numLikes"> {numLikes} likes </span>;
     }
   }
+
+  const getProfilePictureRef = async () => {
+    const profilePictureRef = await storageService
+      .ref()
+      .child(postObj.creatorId + "/profile");
+    profilePictureRef.getDownloadURL().then((url) => {
+      setProfilePicture(url);
+    });
+  };
+  
   return (
     <div className="postContainer">
       <div className="topInfo">
-        <span className="creatorName">{postObj.creatorDisplayName}</span>
-        {isOwner ? (
-          <div className="deletePostButton">
-            <img
-              onClick={onDeleteClick}
-              src={editLogo}
-              alt="Edit Post"
-              width="18px"
-            />
-          </div>
-        ) : (
-          <div />
-        )}
+        <div className="profileImageSmallCropper">
+          <img
+            src={profilePicture}
+            className="profilePictureSmall"
+            alt="Profile"
+          />
+        </div>
+        <div className="topInfoRight">
+          <span className="creatorName">{postObj.creatorDisplayName}</span>
+          {isOwner ? (
+            <div className="deletePostButton">
+              <img
+                onClick={onDeleteClick}
+                src={editLogo}
+                alt="Edit Post"
+                width="18px"
+              />
+            </div>
+          ) : (
+            <div />
+          )}
+          <span className="location">{postObj.location}</span>
+        </div>
       </div>
-      <span className="location">{postObj.location}</span>
+
       {postObj.attachmentUrl && (
         <img
           alt="post"
@@ -102,9 +129,7 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
         />
       )}
       <div className="middleInfo">
-        <div className="postIcons">
-          {likeButton(postObj.likedUsers)}
-        </div>
+        <div className="postIcons">{likeButton(postObj.likedUsers)}</div>
         {/* <svg
           aria-label="Comment"
           className="icon"
