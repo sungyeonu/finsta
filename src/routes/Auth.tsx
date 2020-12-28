@@ -1,7 +1,6 @@
 import React from 'react';
 import AuthForm from '../components/AuthForm';
 import { authService, firebaseInstance } from '../firebase';
-// import "../styles.css";
 import "./auth.css";
 import Logo from "../graphics/Instagram-Logo.png";
 

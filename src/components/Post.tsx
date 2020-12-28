@@ -2,6 +2,7 @@ import { useState, useEffect }  from "react";
 import { dbService, storageService } from "../firebase";
 import "./post.css";
 import editLogo from '../graphics/editButton.png';
+import blankProfile from '../graphics/blankProfile.png';
 
 interface PostProps {
   isOwner: boolean;
@@ -11,7 +12,6 @@ interface PostProps {
 
 const Post = ({ postObj, userUid, isOwner }: PostProps) => {
   const [profilePicture, setProfilePicture] = useState("");
-  // const [profilePictureExists, setProfilePictureExists]
   useEffect(() => {
     getProfilePictureRef();
   }, [])
@@ -87,6 +87,7 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
     const profilePictureRef = await storageService
       .ref()
       .child(postObj.creatorId + "/profile");
+    setProfilePicture(blankProfile)
     profilePictureRef.getDownloadURL().then((url) => {
       setProfilePicture(url);
     });
@@ -103,7 +104,11 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
           />
         </div>
         <div className="topInfoRight">
-          <span className="creatorName">{postObj.creatorDisplayName}</span>
+          <div className="topInfoText">
+            <span className="creatorName">{postObj.creatorDisplayName}</span>
+            <span className="location">{postObj.location}</span>
+          </div>
+
           {isOwner ? (
             <div className="deletePostButton">
               <img
@@ -116,7 +121,6 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
           ) : (
             <div />
           )}
-          <span className="location">{postObj.location}</span>
         </div>
       </div>
 

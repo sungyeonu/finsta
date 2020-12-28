@@ -40,14 +40,22 @@
 
 .creatorName {
   font-weight: 600;
+  display: inline-block;
+
 }
 
 .location {
   font-weight: 300;
   font-size: 14px;
-  padding-top: 4px;
+  width: 100%;
+  display: inline-block;
+  
+  /* padding-top: 4px; */
 }
 
+.topInfoText {
+  display: inline-block;
+}
 .topInfo {
   padding: 12px;
   padding-bottom: 6px;
