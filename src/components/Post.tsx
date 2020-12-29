@@ -103,7 +103,7 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
             alt="Profile"
           />
         </div>
-        <div className="topInfoRight">
+        <div>
           <div className="topInfoText">
             <span className="creatorName">{postObj.creatorDisplayName}</span>
             <span className="location">{postObj.location}</span>
