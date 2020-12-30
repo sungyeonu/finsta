@@ -15,7 +15,7 @@
 }
 
 .icon {
-  padding-right: 4px;
+  margin-right: 4px;
 }
 
 .numLikes {
@@ -29,7 +29,7 @@
 .caption {
   padding-left: 16px;
   padding-top: 8px;
-  padding-bottom: 24px;
+  padding-bottom: 12px;
   font-size: 16px;
 }
 
@@ -49,8 +49,6 @@
   font-size: 14px;
   width: 100%;
   display: inline-block;
-  
-  /* padding-top: 4px; */
 }
 
 .topInfoText {
@@ -79,3 +77,16 @@
   width: auto;
 }
 
+
+.commentInput {
+  border:none;
+  padding-left: 16px;
+}
+
+.commentDiv {
+  border-top: 1px solid #E0E0E0;
+
+}
+.commentInput:focus {
+  outline:none;
+}
