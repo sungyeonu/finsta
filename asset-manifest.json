@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/finsta/static/css/main.9be7d1be.chunk.css",
+    "main.css": "/finsta/static/css/main.88e9dba3.chunk.css",
     "main.js": "/finsta/static/js/main.0b9834d7.chunk.js",
     "main.js.map": "/finsta/static/js/main.0b9834d7.chunk.js.map",
     "runtime-main.js": "/finsta/static/js/runtime-main.e8e35bc7.js",
@@ -8,7 +8,7 @@
     "static/js/2.c9c6d34a.chunk.js": "/finsta/static/js/2.c9c6d34a.chunk.js",
     "static/js/2.c9c6d34a.chunk.js.map": "/finsta/static/js/2.c9c6d34a.chunk.js.map",
     "index.html": "/finsta/index.html",
-    "static/css/main.9be7d1be.chunk.css.map": "/finsta/static/css/main.9be7d1be.chunk.css.map",
+    "static/css/main.88e9dba3.chunk.css.map": "/finsta/static/css/main.88e9dba3.chunk.css.map",
     "static/js/2.c9c6d34a.chunk.js.LICENSE.txt": "/finsta/static/js/2.c9c6d34a.chunk.js.LICENSE.txt",
     "static/media/Instagram-Logo.d9be23dd.png": "/finsta/static/media/Instagram-Logo.d9be23dd.png",
     "static/media/blankProfile.c3f94521.png": "/finsta/static/media/blankProfile.c3f94521.png"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.e8e35bc7.js",
     "static/js/2.c9c6d34a.chunk.js",
-    "static/css/main.9be7d1be.chunk.css",
+    "static/css/main.88e9dba3.chunk.css",
     "static/js/main.0b9834d7.chunk.js"
   ]
 }
