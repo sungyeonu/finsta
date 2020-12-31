@@ -8,16 +8,17 @@ interface PostProps {
   isOwner: boolean;
   userUid: any;
   postObj: any;
+  userDisplayName: string;
 }
 
-const Post = ({ postObj, userUid, isOwner }: PostProps) => {
+const Post = ({ postObj, userUid, isOwner, userDisplayName }: PostProps) => {
   const [profilePicture, setProfilePicture] = useState("");
   const [newComment, setNewComment] = useState<string>("");
   const commentInput = useRef(null);
-  
+
   useEffect(() => {
     getProfilePictureRef();
-  }, [])
+  }, []);
 
   const handleFocus = () => {
     commentInput.current.focus();
@@ -84,18 +85,28 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
         </span>
       );
     }
-  }
+  };
 
   const newCommentOnChange = (event) => {
     const {
       target: { value },
     } = event;
     setNewComment(value);
-  }
+  };
 
-  const newCommentOnSubmit = (event) => {
-
-  }
+  const newCommentOnSubmit = async (event) => {
+    let comments = postObj.comments;
+    const commentObject = {
+      creatorDisplayName: userDisplayName,
+      text: newComment,
+      date: Date.now(),
+    };
+    comments.push(commentObject);
+    await dbService.doc(`posts/${postObj.id}`).update({
+      comments: comments,
+    });
+    setNewComment("");
+  };
 
   const commentButton = () => {
     return (
@@ -116,7 +127,6 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
         </svg>
       </span>
     );
-    
   };
   const likesSpan = (numLikes) => {
     if (numLikes === 1) {
@@ -124,18 +134,18 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
     } else {
       return <span className="numLikes"> {numLikes} likes </span>;
     }
-  }
+  };
 
   const getProfilePictureRef = async () => {
     const profilePictureRef = await storageService
       .ref()
       .child(postObj.creatorId + "/profile");
-    setProfilePicture(blankProfile)
+    setProfilePicture(blankProfile);
     profilePictureRef.getDownloadURL().then((url) => {
       setProfilePicture(url);
     });
   };
-  
+
   return (
     <div className="postContainer">
       <div className="topInfo">
@@ -184,7 +194,15 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
       </div>
       <span className="caption">{postObj.caption}</span>
       <span className="location">{}</span>
-      <div className="commentDiv">
+      {postObj.comments.map((comment) => (
+        <div className="comment">
+          <span className="commentCreatorName">
+            {comment.creatorDisplayName}
+          </span>
+          <span className="commentText"> {comment.text} </span>
+        </div>
+      ))}
+      <div className="addCommentDiv">
         <span>
           <input
             ref={commentInput}
@@ -196,7 +214,9 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
             maxLength={400}
           />
         </span>
-        <span className="commentSubmit">Post</span>
+        <span onClick={newCommentOnSubmit} className="commentSubmit">
+          Post
+        </span>
       </div>
     </div>
   );

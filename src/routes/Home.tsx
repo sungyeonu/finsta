@@ -38,6 +38,7 @@ const Home = ({ userObj }: HomeProps) => {
             key={post.id}
             postObj={post}
             userUid={userObj.uid}
+            userDisplayName={userObj.displayName}
             isOwner={post.creatorId === userObj.uid}
           />
         ))}

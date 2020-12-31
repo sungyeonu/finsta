@@ -29,7 +29,7 @@
 .caption {
   padding-left: 16px;
   padding-top: 8px;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   font-size: 16px;
 }
 
@@ -85,17 +85,30 @@
   vertical-align: middle;
 }
 
-.commentDiv {
+.addCommentDiv {
   border-top: 1px solid #E0E0E0;
   height: 40px;
   line-height: 40px;
-
+  margin-top: 8px;
 }
 
+.comment {
+  font-size: 16px;
+  padding-left: 16px;
+  padding-bottom: 4px;
+}
 .commentInput:focus {
   outline:none;
 }
 
+.commentCreatorName {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.commentText {
+  font-size: 16px;
+}
 .commentSubmit {
   float: right;
   margin-right: 12px;
