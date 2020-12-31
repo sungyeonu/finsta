@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { storageService, dbService } from "../firebase";
 import "./PostForm.css";
@@ -19,6 +19,7 @@ const PostForm = ({ userObj }: PostFormProps) => {
         .ref()
         .child(`${userObj.uid}/${uuidv4()}`);
       const response = await attachmentRef.putString(attachment, "data_url");
+      attachmentUrl = await response.ref.getDownloadURL();
     }
     const postObject = {
       caption: caption,
@@ -28,6 +29,7 @@ const PostForm = ({ userObj }: PostFormProps) => {
       attachmentUrl,
       creatorDisplayName: userObj.displayName,
       likedUsers: [],
+      comments: []
     };
     if (attachmentUrl && caption) {
       await dbService.collection("posts").add(postObject);

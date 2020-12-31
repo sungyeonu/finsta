@@ -187,7 +187,7 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
       <div className="commentDiv">
         <span>
           <input
-            ref={commentInput} 
+            ref={commentInput}
             className="commentInput"
             value={newComment}
             onChange={newCommentOnChange}
@@ -196,7 +196,7 @@ const Post = ({ postObj, userUid, isOwner }: PostProps) => {
             maxLength={400}
           />
         </span>
-        <span className="profileButton" />
+        <span className="commentSubmit">Post</span>
       </div>
     </div>
   );

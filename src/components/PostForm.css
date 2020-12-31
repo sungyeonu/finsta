@@ -56,6 +56,5 @@
 .fileinput {
   margin-left: 24px;
   width: 276px;
-  padding-top: 24px;
-  padding-bottom: 12px;
+  margin-bottom: 16px;
 }
