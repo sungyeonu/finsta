@@ -15,3 +15,9 @@ View the live project at https://sungyeonu.github.io/finsta/#/!
 - `npm run start` runs the app in development mode
 - `npm run build` builds the app for production to the build folder
 - `npm run deploy` deploys the build to github pages
+
+## Screenshots
+![IMG_7034](https://user-images.githubusercontent.com/47223114/103433655-413aa380-4bc3-11eb-87be-2db555840373.jpg)
+![IMG_7035](https://user-images.githubusercontent.com/47223114/103433653-3ed84980-4bc3-11eb-844b-f005c96a8e25.jpg)
+![IMG_7033](https://user-images.githubusercontent.com/47223114/103433654-40097680-4bc3-11eb-8063-bcefd17d5b3c.jpg)
+![IMG_7036](https://user-images.githubusercontent.com/47223114/103433656-426bd080-4bc3-11eb-80d2-4c527ea689d3.jpg)
