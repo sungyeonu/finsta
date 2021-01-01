@@ -4,7 +4,7 @@ Instagram (mini) clone using React + Typescript frontend, and Firebase backend.
 View the live project at https://sungyeonu.github.io/finsta/#/!
 
 ## Features
-- login / registeration using Google or email using firebase authorization
+- login / registeration using OAuth (Google) or email using firebase authorization
 - create and delete "posts", which consists of a caption, a location (optional), and an image
 - profile page, where you can change profile picture, username or log out
 - like and unlike posts
