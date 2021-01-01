@@ -1,5 +1,5 @@
 # Finsta
-Instagram (mini) clone using React, Typescript, and firebase backend. Optimized for mobile view (iPhone X)
+Instagram (mini) clone using React + Typescript frontend, and Firebase backend. 
 
 View the live project at https://sungyeonu.github.io/finsta/#/!
 
@@ -9,6 +9,7 @@ View the live project at https://sungyeonu.github.io/finsta/#/!
 - profile page, where you can change profile picture, username or log out
 - like and unlike posts
 - comment on posts
+- mobile friendly
 
 ## Usage
 - `npm run start` runs the app in development mode
