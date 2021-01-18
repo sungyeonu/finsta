@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { storageService, dbService } from "../firebase";
 import "./PostForm.css";
+import camera from "../graphics/camera.png";
 
 interface PostFormProps {
   userObj: any;
@@ -10,6 +11,7 @@ const PostForm = ({ userObj }: PostFormProps) => {
   const [caption, setCaption] = useState<string>("");
   const [location, setLocation] = useState<string>("");
   const [attachment, setAttachment] = useState("");
+  const hiddenFileInput = useRef(null);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -68,6 +70,9 @@ const PostForm = ({ userObj }: PostFormProps) => {
     reader.readAsDataURL(theFile);
   };
 
+  const handleFileClick = (event) => {
+    hiddenFileInput.current.click();
+  }
   return (
     <form onSubmit={onSubmit} className="postFactoryContainer">
       <span className="postFactoryTitle">Create post</span>
@@ -90,10 +95,12 @@ const PostForm = ({ userObj }: PostFormProps) => {
         maxLength={20}
       />
       <div className="buttonContainer">
+        <img className="cameraIcon" src={camera} onClick={handleFileClick}></img>
         <input
           className="fileinput"
           type="file"
           accept="image/*"
+          ref={hiddenFileInput}
           onChange={onFileChange}
         />
         <input className="postButton" type="submit" value="post" />

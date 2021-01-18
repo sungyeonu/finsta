@@ -21,6 +21,7 @@
   border-radius: 6px;
   margin-right: 32px;
   margin-bottom: 12px;
+  margin-top: 24px;
 }
 
 .postFactoryText {
@@ -54,7 +55,12 @@
 }
 
 .fileinput {
+  display: none;
+}
+
+.cameraIcon {
   margin-left: 24px;
-  width: 276px;
+  margin-top: 24px;
+  width: 32px;
   margin-bottom: 16px;
 }
