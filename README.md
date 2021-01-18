@@ -19,5 +19,5 @@ View the live project at https://sungyeonu.github.io/finsta/#/!
 ## Screenshots
 ![IMG_7034](https://user-images.githubusercontent.com/47223114/103433655-413aa380-4bc3-11eb-87be-2db555840373.jpg)
 ![IMG_7035](https://user-images.githubusercontent.com/47223114/103433653-3ed84980-4bc3-11eb-844b-f005c96a8e25.jpg)
-![camera](https://user-images.githubusercontent.com/47223114/104860521-09896680-58fa-11eb-84cc-7e7e977b47d0.png)
+![camera](https://user-images.githubusercontent.com/47223114/104860533-20c85400-58fa-11eb-8ad7-502153f3a592.png)
 ![IMG_7036](https://user-images.githubusercontent.com/47223114/103433656-426bd080-4bc3-11eb-80d2-4c527ea689d3.jpg)
